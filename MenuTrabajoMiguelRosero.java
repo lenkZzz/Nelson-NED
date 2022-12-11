@@ -390,6 +390,35 @@ public class MenuTrabajoMiguelRosero {
             System.out.println("------------------------------ ");
             System.out.print("Seleccione una opcion del menu : ");
             opcion = entrada.nextInt();
+            switch(opcion){
+                case 1:
+                    //código ejercicio 1
+                    int [] v1;
+                    int cd,primosegundo,primocuarto;
+                    System.out.println("Llenar vector :");
+                    cd = cantidadDatosVector();
+                    v1 = new int [cd];
+                    llenarVector(v1, cd);
+                    mostarVector(v1, cd);
+                    System.out.println(" ");
+                    primosegundo = capturarPrimoSegundo(v1, cd);
+                    primocuarto = capturarPrimoCuarto(v1, cd);
+                    System.out.println("primo 2 "+primosegundo);
+                    System.out.println("primo 4 "+primocuarto);
+                    if((primosegundo+1)==primocuarto){
+                          System.out.println("El primo 2 y 4 son consecutivos");
+                    }else{
+                        System.out.println("El primo 2 y 4 NO son consecutivos");
+                    
+                    }
+                    break;
+                case 2:
+                    //código ejercicio 2
+                    break;
+                case 3:
+                    //salir al menú princiapl
+                    return;
+            }
             
         }while(opcion!=6);
     }
@@ -612,4 +641,40 @@ public class MenuTrabajoMiguelRosero {
         }
     
     }
+    
+    public static int capturarPrimoSegundo(int [] vector, int cd){
+        int contadorprimos1=0;
+        int capturarprimosegudno=0;
+        for(int i=0;i<cd;i++){
+            if((determinarPrimo(vector[i])==true)){
+                contadorprimos1++;
+                
+            }
+            if(contadorprimos1==2){
+                capturarprimosegudno = vector[i];
+            
+            }
+            
+        }
+        return capturarprimosegudno;
+    }
+    
+    public static int capturarPrimoCuarto(int [] vector, int cd){
+        int contadorprimos=0;
+        int capturarprimocuarto=0;
+        for(int i=0;i<cd;i++){
+            if((determinarPrimo(vector[i])==true)){
+                contadorprimos++;
+                
+                
+            }
+            if(contadorprimos==4){
+                capturarprimocuarto = vector[i];
+            
+            }
+            
+        }
+        return capturarprimocuarto;
+    }
 }
+
